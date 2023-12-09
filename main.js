@@ -35,39 +35,39 @@ const addToLocalStorage = (task) => {
 };
 const createTask = (task) => {
   const taskElem = `
-    <div class="taskItem flex gap-3 justify-between items-center py-2">
-    <div class="flex grow">
-        <p class="taskName">${task}</p>
-        <input
-        type="text"
-        size="1"
-        name="taskName"
-        class="taskEditor hidden grow"
-        />
-    </div>
-    <div class="flex gap-3 w-[90px]">
-        <button
-        type="button"
-        class="rounded-md px-3 py-1 font-bold bg-orange-400 text-white"
-        onclick="showEditor(event)"
-        >
-        <i class="fa-regular fa-pen-to-square"></i>
-        </button>
-        <button
-        type="button"
-        class="saveBtn hidden rounded-md px-3 py-1 font-bold bg-orange-400 text-white"
-        onclick="saveTask()"
-        >
-        <i class="fa-regular fa-floppy-disk"></i>
-        </button>
-        <button
-        type="button"
-        class="deleteBtn rounded-md px-3 py-1 font-bold bg-orange-400 text-white"
-        onclick="showDeleteModal(event);"
-        >
-        <i class="fa-solid fa-trash"></i>
-        </button>
-    </div>
+    <div class="taskItem flex gap-3 justify-between items-start py-2">
+      <div class="flex grow">
+          <p class="taskName break-all">${task}</p>
+          <input
+          type="text"
+          size="1"
+          name="taskName"
+          class="taskEditor hidden grow"
+          />
+      </div>
+      <div class="flex gap-3 w-[90px]">
+          <button
+          type="button"
+          class="rounded-md w-10 py-1 font-bold bg-orange-400 text-white"
+          onclick="showEditor(event)"
+          >
+          <i class="pointer-events-none fa-regular fa-pen-to-square"></i>
+          </button>
+          <button
+          type="button"
+          class="saveBtn hidden rounded-md w-10 py-1 font-bold bg-orange-400 text-white"
+          onclick="saveTask()"
+          >
+          <i class="pointer-events-none fa-regular fa-floppy-disk"></i>
+          </button>
+          <button
+          type="button"
+          class="deleteBtn rounded-md w-10 py-1 font-bold bg-orange-400 text-white"
+          onclick="showDeleteModal(event);"
+          >
+          <i class="pointer-events-none fa-solid fa-trash"></i>
+          </button>
+      </div>
     </div>
     `;
   taskList.innerHTML += taskElem;
