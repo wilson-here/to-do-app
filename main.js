@@ -45,7 +45,7 @@ const createTask = (task) => {
         class="taskEditor hidden grow"
         />
     </div>
-    <div class="flex gap-3">
+    <div class="flex gap-3 w-[90px]">
         <button
         type="button"
         class="rounded-md px-3 py-1 font-bold bg-orange-400 text-white"
