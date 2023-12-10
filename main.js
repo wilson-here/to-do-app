@@ -15,6 +15,11 @@ const getTasks = () => {
 const setTasks = (tasks) => {
   window.localStorage.setItem("tasks", JSON.stringify(tasks));
 };
+const toggleMultiple = (el, str) => {
+  if (!el) return;
+  const params = str.split(" ");
+  params.forEach((param) => el.classList.toggle(param));
+};
 // READ
 const renderTask = (taskData, msg = "You have no tasks left. Congrats 🎉") => {
   if (!taskData || taskData.length === 0) {
@@ -35,8 +40,8 @@ const addToLocalStorage = (task) => {
 };
 const createTask = (task) => {
   const taskElem = `
-    <div class="taskItem flex gap-3 justify-between items-start py-2">
-      <div class="flex grow">
+    <div class="taskItem flex gap-3 justify-between items-start py-2 hover:opacity-80 cursor-pointer transition" onclick="toggleStrike(event)">
+      <div class="flex grow pointer-events-none">
           <p class="taskName break-all">${task}</p>
           <input
           type="text"
@@ -150,8 +155,7 @@ const handleDelete = () => {
 };
 
 // SEARCH
-const search = (event) => {
-  console.log(event);
+const searchTask = (event) => {
   const query = event.target.value;
   const regex = new RegExp(query, "i");
   const taskData = getTasks();
@@ -167,6 +171,12 @@ const search = (event) => {
             onclick='document.querySelector(".addBtn").click()'
           >Add</button> it instead?`
   );
+};
+
+// STRIKE TASK
+const toggleStrike = (event) => {
+  const currentTask = event.target.querySelector(".taskName");
+  toggleMultiple(currentTask, "font-bold text-gray-400 line-through");
 };
 
 // Run when page load
